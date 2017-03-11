@@ -63,8 +63,9 @@
 			 */
 			    private function edit($log,$date,$message) {
 				$logcontent = "Time : " . $date->format('H:i:s')."\r\n" . $message ."\r\n\r\n";
-				$logcontent = $logcontent . file_get_contents($log);
-				file_put_contents($log, $logcontent);
+				//$logcontent = $logcontent . file_get_contents($log);
+				//file_put_contents($log, $logcontent);
+				file_put_contents($log, $logcontent, FILE_APPEND | LOCK_EX);
 			    }
 		}
 ?>
